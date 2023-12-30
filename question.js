@@ -1,4 +1,4 @@
-// questions.js
+// questions.js 
 const questions = [
   { question: 'What is the capital of France?', answer: 'Paris', rejectMessage: 'Oops! Wrong answer for the first question.' },
   { question: 'What is the largest planet in our solar system?', answer: 'Jupiter', rejectMessage: 'Uh-oh! That\'s not the right answer for the second question.' },
