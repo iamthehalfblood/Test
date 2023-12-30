@@ -59,11 +59,8 @@
 
 <div class="proposal-box">
   <h2>Love Proposal</h2>
-  <p id="question"></p>
-  <form id="proposalForm">
-    <input type="text" id="answer" placeholder="Enter your answer">
-    <button type="button" onclick="checkAnswer()">Submit</button>
-  </form>
+  <p>Are you ready?</p>
+  <button onclick="startProposal()">Yes</button>
 </div>
 
 <script>
@@ -97,8 +94,14 @@
     answerInput.value = '';
   }
 
-  // Initial display of the first question
-  displayCurrentQuestion();
+  function startProposal() {
+    const ready = confirm('Are you sure you are ready to proceed with the proposal?');
+    if (ready) {
+      displayCurrentQuestion();
+    } else {
+      window.close(); // Close the window if the user clicks "No"
+    }
+  }
 </script>
 
 </body>
