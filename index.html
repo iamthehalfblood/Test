@@ -62,6 +62,10 @@
     #question-container {
       display: none; /* Initially hidden */
     }
+
+    #yes-no-buttons {
+      display: block; /* Initially visible */
+    }
   </style>
 </head>
 <body>
@@ -74,8 +78,10 @@
     <input type="text" id="answer" placeholder="Type your answer...">
     <button onclick="checkAnswer()">Submit Answer</button>
   </div>
-  <button onclick="startProposal()">Yes</button>
-  <button onclick="rejectProposal()">No</button>
+  <div id="yes-no-buttons">
+    <button onclick="startProposal()">Yes</button>
+    <button onclick="rejectProposal()">No</button>
+  </div>
 </div>
 
 <script>
@@ -85,9 +91,11 @@
     const readyMessage = document.getElementById('ready-message');
     const questionContainer = document.getElementById('question-container');
     const questionElement = document.getElementById('question');
+    const yesNoButtons = document.getElementById('yes-no-buttons');
 
     readyMessage.style.display = 'none';
     questionContainer.style.display = 'block';
+    yesNoButtons.style.display = 'none';
     questionElement.textContent = questions[currentQuestionIndex].question;
   }
 
