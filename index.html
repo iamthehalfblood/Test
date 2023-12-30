@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Love Proposal</title>
-  <script src="questions.js"></script>
+  <script src="questions.js" defer></script>
   <!-- Your other styles and scripts go here -->
   <style>
     body {
@@ -54,24 +54,40 @@
       font-size: 18px;
       margin-bottom: 10px;
     }
+
+    #ready-message {
+      display: block; /* Initially visible */
+    }
+
+    #question-container {
+      display: none; /* Initially hidden */
+    }
   </style>
 </head>
 <body>
 
 <div class="proposal-box">
   <h2>Love Proposal</h2>
-  <p>Are you ready?</p>
-  <p id="question"></p>
+  <p id="ready-message">Are you ready?</p>
+  <div id="question-container">
+    <p id="question"></p>
+    <input type="text" id="answer" placeholder="Type your answer...">
+    <button onclick="checkAnswer()">Submit Answer</button>
+  </div>
   <button onclick="startProposal()">Yes</button>
   <button onclick="rejectProposal()">No</button>
-  
 </div>
 
 <script>
   let currentQuestionIndex = 0;
 
   function displayCurrentQuestion() {
+    const readyMessage = document.getElementById('ready-message');
+    const questionContainer = document.getElementById('question-container');
     const questionElement = document.getElementById('question');
+
+    readyMessage.style.display = 'none';
+    questionContainer.style.display = 'block';
     questionElement.textContent = questions[currentQuestionIndex].question;
   }
 
