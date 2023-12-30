@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Love Proposal</title>
-  <script src="questions.js" ></script>
+  <script src="questions.js"></script>
   <!-- Your other styles and scripts go here -->
   <style>
     body {
@@ -61,8 +61,8 @@
 <div class="proposal-box">
   <h2>Love Proposal</h2>
   <p>Are you ready?</p>
-  <button onclick="startProposal(true)">Yes</button>
-  <button onclick="startProposal(false)">No</button>
+  <button onclick="startProposal()">Yes</button>
+  <button onclick="rejectProposal()">No</button>
 </div>
 
 <script>
@@ -96,15 +96,13 @@
     answerInput.value = '';
   }
 
-  function startProposal(isReady) {
-    if (isReady) {
-      const ready = confirm('Are you sure you are ready to proceed with the proposal?');
-      if (ready) {
-        displayCurrentQuestion();
-      }
-    } else {
-      window.location.href = 'https://www.google.com'; // Replace this with your desired redirection URL
-    }
+  function startProposal() {
+    // Display the first question immediately
+    displayCurrentQuestion();
+  }
+
+  function rejectProposal() {
+    window.location.href = 'https://www.google.com'; // Replace this with your desired redirection URL
   }
 </script>
 
