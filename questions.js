@@ -1,7 +1,7 @@
 // questions.js 
 const questions = [
-  { question: 'What is the capital of France?', answer: 'Paris', rejectMessage: 'Oops! Wrong answer for the first question.' },
-  { question: 'What is the largest planet in our solar system?', answer: 'Jupiter', rejectMessage: 'Uh-oh! That\'s not the right answer for the second question.' },
+  { question: 'What is your Name Beautiful?', answer: 'Divya Verma', rejectMessage: 'You are not my Babe, Sorry ' },
+  { question: 'What is the nickname i have given you on snapchat', answer: 'Extrovert', rejectMessage: 'Don't Try. My babe already know the answer' },
   { question: 'Who wrote "Romeo and Juliet"?', answer: 'Shakespeare', rejectMessage: 'Incorrect! The third question is a bit tricky.' },
   { question: 'What is the square root of 144?', answer: '12', rejectMessage: 'Not quite right for the fourth question.' },
   { question: 'Which element has the chemical symbol "O"?', answer: 'Oxygen', rejectMessage: 'Wrong! Try again for the fifth question.' },
