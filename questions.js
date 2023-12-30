@@ -1,8 +1,8 @@
 // questions.js 
 const questions = [
   { question: 'What is your Name Beautiful?', answer: 'Divya Verma', rejectMessage: 'You are not my Babe, Sorry ' },
-  { question: 'What is the nickname i have given you on snapchat', answer: 'Extrovert', rejectMessage: 'Don't Try. My babe already know the answer' },
-  { question: 'Who wrote "Romeo and Juliet"?', answer: 'Shakespeare', rejectMessage: 'Incorrect! The third question is a bit tricky.' },
+  { question: 'What is the first nickname i gave you on snapchat?', answer: 'DUMB Charade', rejectMessage: 'Do not Try. My babe already know the answer' },
+  { question: 'In Which city did we met for the third time?', answer: 'Bareilly', rejectMessage: 'You called me in that city and you do not know, you are imposter then' },
   { question: 'What is the square root of 144?', answer: '12', rejectMessage: 'Not quite right for the fourth question.' },
   { question: 'Which element has the chemical symbol "O"?', answer: 'Oxygen', rejectMessage: 'Wrong! Try again for the fifth question.' },
   { question: 'In which year did the Titanic sink?', answer: '1912', rejectMessage: 'Incorrect! The sixth question tests your historical knowledge.' },
