@@ -54,11 +54,6 @@
       font-size: 18px;
       margin-bottom: 10px;
     }
-
-    #timer {
-      font-size: 14px;
-      margin-top: 5px;
-    }
   </style>
 </head>
 <body>
@@ -66,34 +61,24 @@
 <div class="proposal-box" id="proposalBox">
   <h2>Love Proposal</h2>
   <p id="introMessage">Get ready for a love proposal...</p>
-  <p id="timer">Countdown: <span id="countdown">10</span> seconds</p>
   <input type="text" id="answer" placeholder="Your answer">
   <button onclick="checkAnswer()">Submit Answer</button>
 </div>
 
 <script>
   let currentQuestionIndex = 0;
-  let countdownValue = 10; // Initial countdown value in seconds
 
   function displayCurrentQuestion() {
     const proposalBox = document.getElementById('proposalBox');
     const introMessage = document.getElementById('introMessage');
     const questionElement = document.getElementById('question');
-    const countdownElement = document.getElementById('countdown');
 
     // Hide the intro message and show the question
     introMessage.style.display = 'none';
     questionElement.style.display = 'block';
-    countdownElement.style.display = 'none';
 
     // Display the current question
     questionElement.textContent = questions[currentQuestionIndex].question;
-
-    // Show the answer input and submit button
-    const answerInput = document.getElementById('answer');
-    const submitButton = document.getElementById('submitButton');
-    answerInput.style.display = 'block';
-    submitButton.style.display = 'block';
   }
 
   function checkAnswer() {
@@ -107,7 +92,6 @@
       if (currentQuestionIndex < questions.length - 1) {
         alert('Correct! Proceeding to the next question.');
         currentQuestionIndex++;
-        countdownValue = 10; // Reset the countdown value for the next question
         displayCurrentQuestion();
       } else {
         alert('Congratulations! Your proposal is accepted!');
