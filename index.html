@@ -51,27 +51,41 @@
 
 <div class="proposal-box">
     <h2>Love Proposal</h2>
-    <p>Answer a question to proceed:</p>
-    <form onsubmit="checkAnswer(event)">
+    <form id="proposalForm">
         <input type="text" id="answer" placeholder="Enter your answer">
-        <button type="submit">Submit</button>
+        <button type="button" onclick="checkAnswer()">Submit</button>
     </form>
 </div>
 
 <script>
-    function checkAnswer(event) {
-        event.preventDefault();
-        const answerInput = document.getElementById('answer');
-        const answer = answerInput.value.toLowerCase(); // Convert answer to lowercase for case-insensitivity
+    const questions = [
+        { question: 'What is the first question?', answer: 'answer1' },
+        { question: 'What is the second question?', answer: 'answer2' },
+        // Add more questions as needed
+    ];
 
-        // Replace 'your_question_here' with your actual question
-        const correctAnswer = 'your_question_here';
+    let currentQuestionIndex = 0;
+
+    function checkAnswer() {
+        const answerInput = document.getElementById('answer');
+        const answer = answerInput.value.toLowerCase();
+
+        const currentQuestion = questions[currentQuestionIndex];
+        const correctAnswer = currentQuestion.answer;
 
         if (answer === correctAnswer) {
-            alert('Congratulations! Your proposal is accepted!');
+            if (currentQuestionIndex < questions.length - 1) {
+                alert('Correct! Proceeding to the next question.');
+                currentQuestionIndex++;
+            } else {
+                alert('Congratulations! Your proposal is accepted!');
+            }
         } else {
             alert('Sorry, your proposal is rejected.');
         }
+
+        // Clear the input field for the next question
+        answerInput.value = '';
     }
 </script>
 
