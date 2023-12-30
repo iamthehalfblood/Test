@@ -1,114 +1,104 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Love Proposal</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-            background: url('https://source.unsplash.com/1600x900/?love') no-repeat center center fixed;
-            background-size: cover;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Love Proposal</title>
+  <script src="questions.js" defer></script>
+  <!-- Your other styles and scripts go here -->
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: url('https://source.unsplash.com/1600x900/?love') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
 
-        .proposal-box {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 20px;
-            border-radius: 10px;
-            width: 300px;
-            text-align: center;
-        }
+    .proposal-box {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+    }
 
-        input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            box-sizing: border-box;
-        }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      box-sizing: border-box;
+    }
 
-        button {
-            background-color: #ff4d4d;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+    button {
+      background-color: #ff4d4d;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
 
-        button:hover {
-            background-color: #cc0000;
-        }
+    button:hover {
+      background-color: #cc0000;
+    }
 
-        #question {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-    </style>
+    #question {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+  </style>
 </head>
 <body>
 
 <div class="proposal-box">
-    <h2>Love Proposal</h2>
-    <p id="question"></p>
-    <form id="proposalForm">
-        <input type="text" id="answer" placeholder="Enter your answer">
-        <button type="button" onclick="checkAnswer()">Submit</button>
-    </form>
+  <h2>Love Proposal</h2>
+  <p id="question"></p>
+  <form id="proposalForm">
+    <input type="text" id="answer" placeholder="Enter your answer">
+    <button type="button" onclick="checkAnswer()">Submit</button>
+  </form>
 </div>
 
 <script>
-    const questions = [
-        { question: 'Question 1: What is the capital of France?', answer: 'paris', rejectMessage: 'Oops! Wrong answer for the first question.' },
-        { question: 'Question 2: What is the largest planet in our solar system?', answer: 'jupiter', rejectMessage: 'Uh-oh! That\'s not the right answer for the second question.' },
-        { question: 'Question 3: Who wrote "Romeo and Juliet"?', answer: 'shakespeare', rejectMessage: 'Incorrect! The third question is a bit tricky.' },
-        { question: 'Question 4: What is the square root of 144?', answer: '12', rejectMessage: 'Not quite right for the fourth question.' },
-        { question: 'Question 5: Which element has the chemical symbol "O"?', answer: 'oxygen', rejectMessage: 'Wrong! Try again for the fifth question.' },
-        { question: 'Question 6: In which year did the Titanic sink?', answer: '1912', rejectMessage: 'Incorrect! The sixth question tests your historical knowledge.' },
-        { question: 'Question 7: What is the capital of Japan?', answer: 'tokyo', rejectMessage: 'Oops! The seventh question is about world capitals.' },
-        { question: 'Question 8: Who painted the Mona Lisa?', answer: 'da vinci', rejectMessage: 'Incorrect! The eighth question is about art.' },
-        { question: 'Question 9: What is the largest ocean on Earth?', answer: 'pacific', rejectMessage: 'Wrong! The ninth question tests your geography.' },
-        { question: 'Question 10: How many continents are there?', answer: '7', rejectMessage: 'Oops! The tenth question is about geography.' },
-    ];
+  let currentQuestionIndex = 0;
 
-    let currentQuestionIndex = 0;
+  function displayCurrentQuestion() {
+    const questionElement = document.getElementById('question');
+    questionElement.textContent = questions[currentQuestionIndex].question;
+  }
 
-    function displayCurrentQuestion() {
-        const questionElement = document.getElementById('question');
-        questionElement.textContent = questions[currentQuestionIndex].question;
+  function checkAnswer() {
+    const answerInput = document.getElementById('answer');
+    const answer = answerInput.value.toLowerCase();
+
+    const currentQuestion = questions[currentQuestionIndex];
+    const correctAnswer = currentQuestion.answer;
+
+    if (answer === correctAnswer) {
+      if (currentQuestionIndex < questions.length - 1) {
+        alert('Correct! Proceeding to the next question.');
+        currentQuestionIndex++;
+        displayCurrentQuestion();
+      } else {
+        alert('Congratulations! Your proposal is accepted!');
+      }
+    } else {
+      alert(currentQuestion.rejectMessage || 'Sorry, your proposal is rejected.');
     }
 
-    function checkAnswer() {
-        const answerInput = document.getElementById('answer');
-        const answer = answerInput.value.toLowerCase();
+    // Clear the input field for the next question
+    answerInput.value = '';
+  }
 
-        const currentQuestion = questions[currentQuestionIndex];
-        const correctAnswer = currentQuestion.answer;
-
-        if (answer === correctAnswer) {
-            if (currentQuestionIndex < questions.length - 1) {
-                alert('Correct! Proceeding to the next question.');
-                currentQuestionIndex++;
-                displayCurrentQuestion();
-            } else {
-                alert('Congratulations! Your proposal is accepted!');
-            }
-        } else {
-            alert(currentQuestion.rejectMessage || 'Sorry, your proposal is rejected.'); // Display the specific rejection message or a default message
-        }
-
-        // Clear the input field for the next question
-        answerInput.value = '';
-    }
-
-    // Initial display of the first question
-    displayCurrentQuestion();
+  // Initial display of the first question
+  displayCurrentQuestion();
 </script>
 
 </body>
