@@ -54,23 +54,54 @@
       font-size: 18px;
       margin-bottom: 10px;
     }
+
+    #timer {
+      font-size: 14px;
+      margin-top: 5px;
+    }
   </style>
 </head>
 <body>
 
-<div class="proposal-box">
+<div class="proposal-box" id="proposalBox">
   <h2>Love Proposal</h2>
-  <p>Are you ready?</p>
-  <button onclick="startProposal()">Yes</button>
-  <button onclick="rejectProposal()">No</button>
+  <p id="introMessage">Get ready for a love proposal...</p>
+  <p id="timer">Countdown: <span id="countdown">10</span> seconds</p>
 </div>
 
 <script>
   let currentQuestionIndex = 0;
+  let countdownValue = 10; // Initial countdown value in seconds
 
   function displayCurrentQuestion() {
+    const proposalBox = document.getElementById('proposalBox');
+    const introMessage = document.getElementById('introMessage');
     const questionElement = document.getElementById('question');
+    const countdownElement = document.getElementById('countdown');
+
+    // Hide the intro message and show the question
+    introMessage.style.display = 'none';
+    questionElement.style.display = 'block';
+
+    // Display the current question
     questionElement.textContent = questions[currentQuestionIndex].question;
+
+    // Start the countdown timer
+    startCountdown();
+  }
+
+  function startCountdown() {
+    const countdownElement = document.getElementById('countdown');
+
+    const countdownInterval = setInterval(function () {
+      countdownElement.textContent = countdownValue + ' seconds';
+      countdownValue--;
+
+      if (countdownValue < 0) {
+        clearInterval(countdownInterval);
+        countdownElement.textContent = 'Time\'s up!';
+      }
+    }, 1000);
   }
 
   function checkAnswer() {
@@ -84,6 +115,7 @@
       if (currentQuestionIndex < questions.length - 1) {
         alert('Correct! Proceeding to the next question.');
         currentQuestionIndex++;
+        countdownValue = 10; // Reset the countdown value for the next question
         displayCurrentQuestion();
       } else {
         alert('Congratulations! Your proposal is accepted!');
@@ -97,8 +129,8 @@
   }
 
   function startProposal() {
-    // Call the displayCurrentQuestion function to show the first question
-    displayCurrentQuestion();
+    // Display the first question after 10 seconds
+    setTimeout(displayCurrentQuestion, 10000);
   }
 
   function rejectProposal() {
