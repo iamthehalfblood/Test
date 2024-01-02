@@ -8,6 +8,6 @@ const questions = [
   { question: 'Which Firs Harry potter book i purchased ?', answer: 'Harry Potter and the cursed child', rejectMessage: 'You Filthy Muggle, Crucio!!' },
   { question: 'In which month i gave you the first rose?', answer: 'December', rejectMessage: 'Not gonna talk to you, Bye' },
   { question: 'On which day i confessed my love?', answer: 'Thursday', rejectMessage: 'Bye' },
-  { question: 'DO you Love Me?', answer: 'Yes', rejectMessage: 'Wrong Answer' },
+  { question: 'DO you Love Me?', answer: 'Yes', rejectMessage: 'Wrong Answer' }
   
 ];
