@@ -108,14 +108,14 @@
 
     if (answer === correctAnswer) {
       if (currentQuestionIndex < questions.length - 1) {
-        alert('Correct! Proceeding to the next question.');
+        alert('Correct! Let's move to next question :)');
         currentQuestionIndex++;
         displayCurrentQuestion();
       } else {
         alert('Congratulations! Your proposal is accepted!');
       }
     } else {
-      alert(currentQuestion.rejectMessage || 'Sorry, your proposal is rejected.');
+      alert(currentQuestion.rejectMessage || 'Sorry, you failed in my test, Can not tell you the secret message');
     }
 
     // Clear the input field for the next question
