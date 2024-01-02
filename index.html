@@ -101,10 +101,10 @@
 
   function checkAnswer() {
     const answerInput = document.getElementById('answer');
-    const answer = answerInput.value.toLowerCase();
+    const answer = answerInput.value.trim().toLowerCase(); // Trim and convert to lowercase
 
     const currentQuestion = questions[currentQuestionIndex];
-    const correctAnswer = currentQuestion.answer;
+    const correctAnswer = currentQuestion.answer.toLowerCase(); // Convert to lowercase
 
     if (answer === correctAnswer) {
       if (currentQuestionIndex < questions.length - 1) {
@@ -131,6 +131,5 @@
     window.location.href = 'https://www.google.com'; // Replace this with your desired redirection URL
   }
 </script>
-
 </body>
 </html>
