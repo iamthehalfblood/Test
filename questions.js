@@ -1,6 +1,6 @@
 // questions.js 
 const questions = [
-  { question: 'What is your Name Beautiful?', answer: 'Divya Verma', rejectMessage: 'You are not my Babe, Sorry ' },
+  { question: 'What is your Name Beautiful?', answer: 'divya verma', rejectMessage: 'You are not my Babe, Sorry ' },
   { question: 'What is the first nickname i gave you on snapchat?', answer: 'DUMB Charade', rejectMessage: 'Do not Try. My babe already know the answer' },
   { question: 'In Which city did we met for the third time?', answer: 'Bareilly', rejectMessage: 'You called me in that city and you do not know, you are imposter then' },
   { question: 'What is the square root of 144?', answer: '12', rejectMessage: 'Not quite right for the fourth question.' },
